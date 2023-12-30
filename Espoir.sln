@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Espoir", "Espoir\Espoir.csproj", "{766BF53E-F43A-4E7F-9680-0C364C020ABD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{766BF53E-F43A-4E7F-9680-0C364C020ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{766BF53E-F43A-4E7F-9680-0C364C020ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{766BF53E-F43A-4E7F-9680-0C364C020ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{766BF53E-F43A-4E7F-9680-0C364C020ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D134FD51-BE32-4ECB-A4E1-76A35D391C62}
+	EndGlobalSection
+EndGlobal
