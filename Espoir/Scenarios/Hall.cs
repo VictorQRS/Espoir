@@ -83,6 +83,7 @@ namespace Espoir.Scenarios
         {
             if (GameLogic.CanLeave(this.Context.MainCharacter, out LeaveDenialReason? reason))
             {
+                this.Context.FinishGame();
                 return new GameOver(success: true, this.Context);
             }
 

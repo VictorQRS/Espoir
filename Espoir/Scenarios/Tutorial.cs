@@ -13,6 +13,8 @@ namespace Espoir.Scenarios
             this.GameExplanation();
             this.CardDistribution();
 
+            this.Context.StartGame();
+
             return new Hall(this.Context);
         }
 
@@ -82,7 +84,7 @@ namespace Espoir.Scenarios
             {
                 "To leave this room, one needs to pay 3 stars and have NO cards left.",
                 "Remember that you still need to pay your debt, and if you don't have the amount with you, you'll need to pay that even after the Espoir returns to land.",
-                "Ah! About those who could not leave this room by the end of this 4 hour journey, well... let's just say it will not be pretty.",
+                "Ah! About those who could not leave this room by the end of this 1 hour journey, well... let's just say it will not be pretty.",
             });
         }
 

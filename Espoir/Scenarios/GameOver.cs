@@ -56,10 +56,10 @@ namespace Espoir.Scenarios
 
         private Scenario? RunFailure()
         {
-            Scene.Dialogue("You now have NO cards! It's time for you to pay...");
-            Scene.Dialogue("Say good bye to your life. Die? Oh no, far worse...");
-
-            Scene.Dialogue("Game Over");
+            Scene.Dialogue(new List<string>{
+                "You now have NO cards! It's time for you to pay...",
+                "Say good bye to your life. Die? Oh no, far worse..."
+            });
 
             return null;
         }

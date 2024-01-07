@@ -59,10 +59,11 @@ namespace Espoir.Scenarios
             // MC stars should never be smaller than 0, but just in case.
             if (this.Context.MainCharacter.Stars <= 0)
             {
+                this.Context.FinishGame();
                 return new GameOver(success: false, this.Context);
             }
 
-            // TODO: while we don't have timing and personalities, simulate battles after every battle
+            // TODO: while we don't have personalities, simulate battles after every battle
             GameLogic.SimulateBattles(this.Context);
 
             return new Hall(this.Context);

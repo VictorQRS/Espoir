@@ -127,8 +127,7 @@
 
         public static decimal DebtCerimony(EspoirContext context, out decimal originalDebt)
         {
-            // TODO: when add time to the game, then we need to change this
-            originalDebt = context.MainCharacter.Debt * new decimal(1.4);
+            originalDebt = context.MainCharacter.Debt;
             return context.MainCharacter.Debt - context.MainCharacter.WarFunds;
         }
 
