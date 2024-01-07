@@ -13,19 +13,12 @@ namespace Espoir.Scenarios
 
         public override Scenario? Run()
         {
-            if (success)
-            {
-                this.RunSuccess();
-            }
-            else
-            {
-                this.RunFailure();
-            }
-            
-            return null;
+            return success
+                ? this.RunSuccess()
+                : this.RunFailure();
         }
 
-        private void RunSuccess()
+        private Scenario? RunSuccess()
         {
             Scene.Dialogue("Congratulations for clearing out the Restricted Rock-Paper-Scissors game!");
             Scene.Dialogue($"You have {this.Context.MainCharacter.Stars} stars and we'll collect three for your ticket.");
@@ -33,39 +26,42 @@ namespace Espoir.Scenarios
 
             Scene.Dialogue("Additionally, we'd like to tell that you can sell the excess of stars, each costing $10 million.");
 
-            if (this.Context.MainCharacter.Stars > 0)
+            decimal reward = GameLogic.RewardCerimony(this.Context);
+            int remainingStars = this.Context.MainCharacter.Stars;
+            if (remainingStars > 0)
             {
-                Scene.Dialogue($"It seems you have an additional of {this.Context.MainCharacter.Stars} stars.");
-                var reward = this.Context.MainCharacter.Stars * 10000000;
+                Scene.Dialogue($"It seems you have an additional of {remainingStars} stars.");
                 Scene.Dialogue($"So here's your ${reward}.");
-                this.Context.MainCharacter.WarFunds += reward;
             }
             else
             {
                 Scene.Dialogue("It's unfortunate that you don't have any remaining stars.");
             }
 
-            this.Context.MainCharacter.Debt *= new decimal(1.4);
-            Scene.Dialogue($"Now, for the debt collection, according to our calculations you owe us ${this.Context.MainCharacter.Debt}.");
+            var debt = GameLogic.DebtCerimony(this.Context, out decimal originalDebt);
+            Scene.Dialogue($"Now, for the debt collection, according to our calculations you owe us ${originalDebt}.");
             Scene.Dialogue("We will now collect that from your war funds.");
 
-            var debt = this.Context.MainCharacter.Debt - this.Context.MainCharacter.WarFunds;
             if (debt > 0)
             {
-                Scene.Dialogue($"It seems you now owe us ${debt}.");
+                Scene.Dialogue($"It seems you now owe us ${debt}. Don't worry, you can enjoy the cruise, but we will be seeing each other soon...");
             }
             else
             {
                 Scene.Dialogue($"Congratulations, you survived the game and is now leaving with ${-1 * debt} in your account. That was truly a great night, wasn't it?");
             }
+
+            return null;
         }
 
-        private void RunFailure()
+        private Scenario? RunFailure()
         {
             Scene.Dialogue("You now have NO cards! It's time for you to pay...");
             Scene.Dialogue("Say good bye to your life. Die? Oh no, far worse...");
 
             Scene.Dialogue("Game Over");
+
+            return null;
         }
     }
 }

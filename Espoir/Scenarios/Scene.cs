@@ -1,10 +1,17 @@
 ﻿using Espoir.Entities;
-using System.Runtime.CompilerServices;
 
 namespace Espoir.Scenarios
 {
     internal class Scene
     {
+        public static void Dialogue(IEnumerable<string> messages)
+        {
+            foreach(var msg in messages)
+            {
+                Scene.Dialogue(msg);
+            }
+        }
+
         public static void Dialogue(string message)
         {
             Console.WriteLine(message);

@@ -37,30 +37,5 @@
                 _ => CardType.Unknown,
             };
         }
-
-        public static BattleResult Battle(CardType card1, CardType card2)
-        {
-            if (card1 == card2) return BattleResult.Draw;
-            
-            if (card1 == CardType.Rock)
-            {
-                if (card2 == CardType.Paper) return BattleResult.Loss;
-                if (card2 == CardType.Scissors) return BattleResult.Victory;
-            }
-
-            if (card1 == CardType.Paper)
-            {
-                if (card2 == CardType.Rock) return BattleResult.Victory;
-                if (card2 == CardType.Scissors) return BattleResult.Loss;
-            }
-
-            if (card1 == CardType.Scissors)
-            {
-                if (card2 == CardType.Paper) return BattleResult.Victory;
-                if (card2 == CardType.Rock) return BattleResult.Loss;
-            }
-
-            throw new ArgumentException("CardType not allowed.");
-        }
     }
 }
